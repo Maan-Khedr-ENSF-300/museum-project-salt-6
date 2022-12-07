@@ -15,6 +15,25 @@ Create Table Collections
     PRIMARY KEY (Name)
 );
 
+
+
+
+
+
+
+Create Table Exhibition
+(
+    Name varchar(20)  NOT NULL,
+    
+    Start_date varchar(10) NOT NULL,
+
+    End_date varchar(10) NOT NULL,
+
+    PRIMARY KEY (Name)
+
+);
+
+
 Create Table Artist 
 (
     Name varchar(30),
