@@ -1,3 +1,4 @@
+
 Drop DATABASE if Exists Art_Museum
 Create Database Art_Museum;
 Use Art_Museum;
@@ -28,6 +29,7 @@ Create Table Exhibition
 
     PRIMARY KEY (Name)
 
+<<<<<<< HEAD
 );
 
 
