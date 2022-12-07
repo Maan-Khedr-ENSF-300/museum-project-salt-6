@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 Drop DATABASE if Exists Art_Museum
 Create Database Art_Museum;
 Use Art_Museum;
@@ -15,9 +14,23 @@ Create Table Collections
 
     PRIMARY KEY (Name)
 );
-=======
-DROP DATABASE IF EXISTS art_museum;
-Create DATABASE art_museum;
-Use art_museum;
->>>>>>> c92f47568884647132c8a7dc1dd334b47238e4e9
+
+
+
+
+
+
+
+Create Table Exhibition
+(
+    Name varchar(20)  NOT NULL,
+    
+    Start_date varchar(10) NOT NULL,
+
+    End_date varchar(10) NOT NULL,
+
+    PRIMARY KEY (Name)
+
+);
+
 
