@@ -18,9 +18,6 @@ Create Table Collections
 
 
 
-
-
-
 Create Table Exhibition
 (
     Name varchar(20)  NOT NULL,
