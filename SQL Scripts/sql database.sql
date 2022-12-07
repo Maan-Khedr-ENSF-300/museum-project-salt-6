@@ -36,8 +36,9 @@ Create Table Artist
     Date_died varchar(20),
 
     Country_of_origin varchar(25) NOT NULL,
-    
-)
+
+    Primary Key(Name)
+);
 
 
 Create Permanent_Collection 
@@ -45,8 +46,10 @@ Create Permanent_Collection
     unique id_no varchar(25)   NOT NULL,
     Date_acquired   varchar(20) NOT NULL,
     Status  varchar(20) NOT NULL,
-    Cost int NOT NULL
-)
+    Cost int NOT NULL,
+    Primary key(unique id_no),
+    Foreign key(unique id_no) references Art_Object(unique id_no),
+);
 
 Create Painting
 (
@@ -54,7 +57,9 @@ Create Painting
     Drawn_on varchar(20) NOT NULL,
     Style varchar(15)   NOT NULL,
     Paint_type varchar(20) NOT NULL,
-)
+    Primary key(unique id_no),
+    Foreign key(unique id_no) references Art_Object(unique id_no),
+);
 
 Create Statue 
 (
@@ -62,4 +67,7 @@ Create Statue
     Height int NOT NULL,
     Weight int NOT NULL,
     Material  varchar(25) NOT NULL,
-)
+    Primary Key(unique id_no),
+    Foreign key(unique id_no) references Art_Object(unique id_no),
+);
+
