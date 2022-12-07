@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 Drop DATABASE if Exists Art_Museum
 Create Database Art_Museum;
 Use Art_Museum;
@@ -15,9 +14,12 @@ Create Table Collections
 
     PRIMARY KEY (Name)
 );
-=======
-DROP DATABASE IF EXISTS art_museum;
-Create DATABASE art_museum;
-Use art_museum;
->>>>>>> c92f47568884647132c8a7dc1dd334b47238e4e9
 
+Create Table Artist 
+(
+    Name varchar(30),
+    DateBorn varchar(25),
+    Date_died varchar(20),
+    Country_of_origin varchar(25) NOT NULL,
+    
+)
