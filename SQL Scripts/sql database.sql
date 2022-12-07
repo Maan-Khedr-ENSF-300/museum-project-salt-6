@@ -16,9 +16,6 @@ Create Table Collections
     PRIMARY KEY (Name)
 );
 
-
-
-
 Create Table Exhibition
 (
     Name varchar(20)  NOT NULL,
@@ -28,16 +25,41 @@ Create Table Exhibition
     End_date varchar(10) NOT NULL,
 
     PRIMARY KEY (Name)
-
-<<<<<<< HEAD
 );
-
 
 Create Table Artist 
 (
     Name varchar(30),
+
     DateBorn varchar(25),
+
     Date_died varchar(20),
+
     Country_of_origin varchar(25) NOT NULL,
     
+)
+
+
+Create Permanent_Collection 
+(
+    unique id_no varchar(25)   NOT NULL,
+    Date_acquired   varchar(20) NOT NULL,
+    Status  varchar(20) NOT NULL,
+    Cost int NOT NULL
+)
+
+Create Painting
+(
+    unique id_no varchar(25) NOT NULL,
+    Drawn_on varchar(20) NOT NULL,
+    Style varchar(15)   NOT NULL,
+    Paint_type varchar(20) NOT NULL,
+)
+
+Create Statue 
+(
+    unique id_no varchar(25) NOT NULL,
+    Height int NOT NULL,
+    Weight int NOT NULL,
+    Material  varchar(25) NOT NULL,
 )
