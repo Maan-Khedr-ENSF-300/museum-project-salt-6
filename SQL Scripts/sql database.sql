@@ -18,13 +18,15 @@ Create Table Collections
 
 Create Table Exhibition
 (
+    Art_id varchar(20) NOT NULL,
     Name varchar(20)  NOT NULL,
-    
+
     Start_date varchar(10) NOT NULL,
 
     End_date varchar(10) NOT NULL,
-
-    PRIMARY KEY (Name)
+    
+    PRIMARY KEY (Name, Art_id)
+    Foreign Key(Art_id) references Art_Object(uniq)
 );
 
 Create Table Artist 
@@ -69,5 +71,38 @@ Create Statue
     Material  varchar(25) NOT NULL,
     Primary Key(unique id_no),
     Foreign key(unique id_no) references Art_Object(unique id_no),
+);
+
+
+Create Art_Object (
+    Title varchar(20) NOT NULL,
+    Description varchar(20) NOT NULL,
+    year_created INT NOT NULL,
+    Epoch varchar(20) NOT NULL,
+    Country_of_origin varchar(20) NOT NULL,
+    Unique id_no INT NOT NUll,
+
+    PRIMARY KEY (Unique id_no)
+);
+
+Create Borrowed_Collection(
+    Date_borrowed varchar(20) NOT NULL,
+    Date_returned varchar(20) NOT NULL,
+    Collection varchar(20) NOT NULL,
+    Unique id_no int NOT NULL
+);
+
+CREATE Sculpture(
+    Weight varchar(20) NOT NULL,
+    Height varchar(20) NOT NULL,
+    Style varchar(20) NOT NULL,
+    Material varchar(20) NOT NULL,
+    Unique id_no int NOT NULL
+);
+
+Create Other(
+    Unique_id_no INT,
+    Style varchar(20) NOT NULL,
+    Type varchar(20) NOT NULL
 );
 
