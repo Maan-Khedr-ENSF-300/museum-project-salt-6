@@ -138,7 +138,7 @@ else:
         query = input("Enter an SQL command: ")
         
     elif(username == "employee"):
-        print("")
+        print("You were this")
 
 
 
