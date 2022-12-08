@@ -14,6 +14,23 @@ Create Table Collections
     Contact__Person     varchar(20)    NOT NULL,
     PRIMARY KEY (Name)
 );
+<<<<<<< HEAD
+=======
+
+Create Table Exhibition
+(
+    Art_id INT NOT NULL,
+    Name varchar(20)  NOT NULL,
+
+    Start_date varchar(20) NOT NULL,
+
+    End_date varchar(20) NOT NULL,
+
+    PRIMARY KEY (Name, Art_id)
+    Foreign Key (Art_id) references Art_Object(unique_id_no)
+);
+
+>>>>>>> refs/remotes/origin/main
 Create Table Artist 
 (
     Name varchar(30),
