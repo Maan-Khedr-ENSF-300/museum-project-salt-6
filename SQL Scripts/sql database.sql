@@ -20,9 +20,9 @@ Create Table Exhibition
     Art_id varchar(20) NOT NULL,
     Name varchar(20)  NOT NULL,
 
-    Start_date varchar(10) NOT NULL,
+    Start_date varchar(20) NOT NULL,
 
-    End_date varchar(10) NOT NULL,
+    End_date varchar(20) NOT NULL,
 
     PRIMARY KEY (Name, Art_id)
     Foreign Key(Art_id) references Art_Object(unique id_no)
@@ -53,7 +53,7 @@ Create Permanent_Collection
     unique id_no varchar(25)   NOT NULL,
     Date_acquired   varchar(20) NOT NULL,
     Status  varchar(20) NOT NULL,
-    Cost int NOT NULL,
+    Cost varchar(10) NOT NULL,
     Primary key(unique id_no),
     Foreign key(unique id_no) references Art_Object(Unique id_no),
 );
@@ -119,3 +119,6 @@ Create Other(
     Foreign Key(unique id_no) references Art_Object(unique id_no)
 );
 
+
+insert into Permanent_Collection
+Values (('111287765', 1928, 'On Display', 'N/A'))
