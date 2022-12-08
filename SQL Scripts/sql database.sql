@@ -14,8 +14,6 @@ Create Table Collections
     Contact__Person     varchar(20)    NOT NULL,
     PRIMARY KEY (Name)
 );
-<<<<<<< HEAD
-=======
 
 Create Table Exhibition
 (
@@ -30,7 +28,6 @@ Create Table Exhibition
     Foreign Key (Art_id) references Art_Object(unique_id_no)
 );
 
->>>>>>> refs/remotes/origin/main
 Create Table Artist 
 (
     Name varchar(30),
