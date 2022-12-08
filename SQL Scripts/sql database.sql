@@ -121,4 +121,14 @@ Create Other(
 
 
 insert into Permanent_Collection
-Values (('111287765', 1928, 'On Display', 'N/A'))
+Values (('111287765', 1928, 'On Display', 'N/A'),
+        ('355611559', 1955, 'stored', '124500$'),
+        ('237892120', 1943, 'Loan', 'N/A' ),
+        ('218349039', 1902, 'Loan', 'N/A'));
+
+INSERT into Artist
+VALUES(('N/A', 'N/A', 'N/A', 'Great Britain', 'Renaissance', 'Neo-Classical', 'N/A')
+(''))
+
+
+
