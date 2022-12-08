@@ -83,6 +83,27 @@ def browsing_interface():
         print("SHOW THE EXHIBITION TABLE")
 
 
+def data_entry_interface():
+    print("(a) - Lookup information")
+    print("(b) - Manipulate database")
+    print("\tOther")
+    input = input("Enter a letter: ")
+    while(input != "a" and input != "b"):
+        print("Error detected. Please try again!")
+        input = input("Enter a letter: ")
+    if(input == "a"):
+        print("Note: These are all the Tables:")
+        print("\tCollections")
+        print("\tArtist")
+        print("\tArt_Object")
+        print("\tExhibition")
+        print("\tPermanent_Collection")
+        print("\tBorrowed Collection")
+        print("\tPainting")
+        print("\tSculpture")
+        print("\tStatue\n")
+        table_search = input("Enter The Name of Table you would like to look up: ")
+
 def main_menu():
     global isGuest
     number_input = input("Enter (1) to go to log in menu or (2) to continue as guest: ")
@@ -107,6 +128,17 @@ else:
     #Therefore to use code, Enter either admin or employee for username. The password can be anything
     username = input("Enter username: ")
     password = input("Enter password: ")
+
+    while(username != "admin" and username != "employee"):
+        print("Error in Code. Please try again")
+        username = input("Enter username: ")
+        password = input("Enter password: ")
+
+    if(username == "admin"):
+        query = input("Enter an SQL command: ")
+        
+    elif(username == "employee"):
+        print("")
 
 
 

@@ -39,7 +39,7 @@ From Painting
 /*Query 3 - Retrieval Query with Ordered Results*/
 Select *
 From Art_Object
-ORDER BY Unique id_no
+ORDER BY Unique_id_no
 
 /*Query 4 - A Nested Retrieval Query*/
 Select *

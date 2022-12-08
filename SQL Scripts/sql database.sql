@@ -1,5 +1,5 @@
 
-Drop DATABASE if Exists Art_Museum
+Drop DATABASE if Exists Art_Museum;
 Create Database Art_Museum;
 Use Art_Museum;
 
@@ -25,7 +25,7 @@ Create Table Exhibition
     End_date varchar(20) NOT NULL,
 
     PRIMARY KEY (Name, Art_id)
-    Foreign Key(Art_id) references Art_Object(unique_id_no)
+    Foreign Key (Art_id) references Art_Object(unique_id_no)
 );
 
 Create Table Artist 
