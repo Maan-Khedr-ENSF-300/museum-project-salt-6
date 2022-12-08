@@ -2,7 +2,7 @@ import mysql.connector;
 
 cnx = mysql.connector.connect(
         host="localhost",
-        port=33060,
+        port=3306,
         database="art_museum",
         username="root",
         password="Yolo123$"
