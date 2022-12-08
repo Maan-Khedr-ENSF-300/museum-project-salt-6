@@ -17,7 +17,7 @@ Create Table Collections
 
 Create Table Exhibition
 (
-    Art_id varchar(20) NOT NULL,
+    Art_id INT NOT NULL,
     Name varchar(20)  NOT NULL,
 
     Start_date varchar(20) NOT NULL,
@@ -50,7 +50,7 @@ Create Table Artist
 
 Create Permanent_Collection 
 (
-    unique id_no varchar(25)   NOT NULL,
+    unique id_no  int  NOT NULL,
     Date_acquired   varchar(20) NOT NULL,
     Status  varchar(20) NOT NULL,
     Cost varchar(10) NOT NULL,
@@ -60,7 +60,7 @@ Create Permanent_Collection
 
 Create Painting
 (
-    unique id_no varchar(25) NOT NULL,
+    unique id_no int NOT NULL,
     Drawn_on varchar(20) NOT NULL,
     Style varchar(15)   NOT NULL,
     Paint_type varchar(20) NOT NULL,
@@ -70,7 +70,7 @@ Create Painting
 
 Create Statue 
 (
-    unique id_no varchar(25) NOT NULL,
+    unique id_no int NOT NULL,
     Height int NOT NULL,
     Weight int NOT NULL,
     Material  varchar(25) NOT NULL,
@@ -102,8 +102,8 @@ Create Borrowed_Collection(
 );
 
 CREATE Sculpture(
-    Weight varchar(20) NOT NULL,
-    Height varchar(20) NOT NULL,
+    Weight int NOT NULL,
+    Height int NOT NULL,
     Style varchar(20) NOT NULL,
     Material varchar(20) NOT NULL,
     Unique id_no int NOT NULL,
@@ -112,7 +112,7 @@ CREATE Sculpture(
 );
 
 Create Other(
-    Unique id_no INT,
+    Unique id_no INT  NOT NULL,
     Style varchar(20) NOT NULL,
     Type varchar(20) NOT NULL,
     Primary Key(unique id_no),
@@ -121,4 +121,9 @@ Create Other(
 
 
 insert into Permanent_Collection
-Values (('111287765', 1928, 'On Display', 'N/A'))
+Values (('111287765', 1928, 'On Display', 'N/A'),
+        *)
+
+insert into Art_Object
+values (('Pair of gloves', 'Portraits from the late sixteenth and early seventeenth centuries are replete with minutely detailed representations of garments and accessories decorated with emblematic motifs.',
+))
