@@ -25,7 +25,7 @@ Create Table Exhibition
     End_date varchar(20) NOT NULL,
 
     PRIMARY KEY (Name, Art_id)
-    Foreign Key(Art_id) references Art_Object(unique id_no)
+    Foreign Key(Art_id) references Art_Object(unique_id_no)
 );
 
 Create Table Artist 
@@ -50,33 +50,33 @@ Create Table Artist
 
 Create Permanent_Collection 
 (
-    unique id_no  int  NOT NULL,
+    unique_id_no  int  NOT NULL,
     Date_acquired   varchar(20) NOT NULL,
     Status  varchar(20) NOT NULL,
     Cost varchar(10) NOT NULL,
-    Primary key(unique id_no),
-    Foreign key(unique id_no) references Art_Object(Unique id_no),
+    Primary key(unique_id_no),
+    Foreign key(unique_id_no) references Art_Object(unique_id_no),
 );
 
 Create Painting
 (
-    unique id_no int NOT NULL,
+    unique_id_no int NOT NULL,
     Drawn_on varchar(20) NOT NULL,
     Style varchar(15)   NOT NULL,
     Paint_type varchar(20) NOT NULL,
-    Primary key(unique id_no),
-    Foreign key(unique id_no) references Art_Object(unique id_no),
+    Primary key(unique_id_no),
+    Foreign key(unique_id_no) references Art_Object(unique id_no),
 );
 
 Create Statue 
 (
-    unique id_no int NOT NULL,
+    unique_id_no int NOT NULL,
     Height int NOT NULL,
     Weight int NOT NULL,
     Material  varchar(25) NOT NULL,
     Style varchar(25) NOT NULL,
-    Primary Key(unique id_no),
-    Foreign key(unique id_no) references Art_Object(unique id_no),
+    Primary Key(unique_id_no),
+    Foreign key(unique_id_no) references Art_Object(unique_id_no),
 );
 
 
@@ -86,8 +86,8 @@ Create Art_Object (
     year_created INT NOT NULL,
     Epoch varchar(20) NOT NULL,
     Country_of_origin varchar(20) NOT NULL,
-    Unique id_no INT NOT NUll,
-    CONSTRAINT AOPK PRIMARY KEY (Unique id_no),
+    Unique_id_no INT NOT NUll,
+    CONSTRAINT AOPK PRIMARY KEY (Unique_id_no),
     CONSTRAINT AOFK1 Foreign Key(Epoch) references Art_Object(Epoch),
     CONSTRAINT AOFK2 Foreign Key(Country_of_origin) references Art_Object(Country_of_origin)
 );
@@ -96,9 +96,9 @@ Create Borrowed_Collection(
     Date_borrowed varchar(20) NOT NULL,
     Date_returned varchar(20) NOT NULL,
     Collection varchar(20) NOT NULL,
-    Unique id_no int NOT NULL,
-    Primary Key(unique id_no),
-    Foreign Key(unique id_no) references Art_Object(unique id_no)
+    Unique_id_no int NOT NULL,
+    Primary Key(unique_id_no),
+    Foreign Key(unique_id_no) references Art_Object(unique_id_no)
 );
 
 CREATE Sculpture(
@@ -106,24 +106,16 @@ CREATE Sculpture(
     Height int NOT NULL,
     Style varchar(20) NOT NULL,
     Material varchar(20) NOT NULL,
-    Unique id_no int NOT NULL,
-    Primary Key(unique id_no),
-    Foreign Key(unique id_no) references Art_Object(unique id_no)
+    Unique_id_no int NOT NULL,
+    Primary Key(unique_id_no),
+    Foreign Key(unique_id_no) references Art_Object(unique_id_no)
 );
 
 Create Other(
-    Unique id_no INT  NOT NULL,
+    Unique_id_no INT  NOT NULL,
     Style varchar(20) NOT NULL,
     Type varchar(20) NOT NULL,
-    Primary Key(unique id_no),
-    Foreign Key(unique id_no) references Art_Object(unique id_no)
+    Primary Key(unique_id_no),
+    Foreign Key(unique_id_no) references Art_Object(unique_id_no)
 );
 
-
-insert into Permanent_Collection
-Values (('111287765', 1928, 'On Display', 'N/A'),
-        *)
-
-insert into Art_Object
-values (('Pair of gloves', 'Portraits from the late sixteenth and early seventeenth centuries are replete with minutely detailed representations of garments and accessories decorated with emblematic motifs.',
-))
