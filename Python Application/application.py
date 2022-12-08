@@ -2,13 +2,15 @@ import mysql.connector;
 
 cnx = mysql.connector.connect(
         host="localhost",
-        port=33060,
+        port=3306,
         database="art_museum",
         username="root",
         password="Yolo123$"
 )
 
 cur = cnx.cursor()
+
+cur.execute("use art_museum")
 
 def guest_menu():
     print("Welcome Guest. To access any of the tables below, Enter (1) or (2)")
@@ -56,13 +58,13 @@ def browsing_interface():
                 print("Error. please try again")
                 input_3 = input("Enter a number: ")
             if(input_3 == "1"):
-                print("SHOW PAINTING IN PERMANENT COLLECTION")
+                cur.execute("select * from Painting where unique_id_no in (Select unique_id_no from Permanent_Collection)")
             elif(input_3 == "2"):
-                print("SHOW SCULPTURE IN PERMANENT COLLECTION")
+                cur.execute("select * from Sculpture where unique_id_no in (Select unique_id_no from Permanent_Collection)")
             elif(input_3 == "3"):
-                print("SHOW STATUE IN PERMANENT COLLECTION")
+                cur.execute("select * from Statue where unique_id_no in (Select unique_id_no from Permanent_Collection)")
             elif(input_3 == "4"):
-                print("SHOW OTHER IN PERMANENT COLLECTION")
+                cur.execute("select * from Other where unique_id_no in (Select unique_id_no from Permanent_Collection)")
         elif(input_2 == "2"):
             guest_table_selection()
             input_3 = input("Enter a number: ")
@@ -70,17 +72,17 @@ def browsing_interface():
                 print("Error. please try again")
                 input_3 = input("Enter a number: ")
             if(input_3 == "1"):
-                print("SHOW PAINTING IN BORROWED COLLECTION")
+                cur.execute("select * from Painting where unique_id_no in (Select unique_id_no from Borrowed")
             elif(input_3 == "2"):
-                print("SHOW SCULPTURE IN BORROWED COLLECTION")
+                cur.execute("select * from Sculpture where unique_id_no in (Select unique_id_no from Borrowed)")
             elif(input_3 == "3"):
-                print("SHOW STATUE IN BORROWED COLLECTION")
+                cur.execute("select * from Statue where unique_id_no in (Select unique_id_no from Borrowed)")
             elif(input_3 == "4"):
-                print("SHOW OTHER IN BORROWED COLLECTION")
+                cur.execute("select * from Other where unique_id_no in (Select unique_id_no from Borrowed)")
         elif(input_2 == "3"):
-            print("SHOW ARTIST TABLE")
+            cur.execute("Select * from Artist")
     elif(input_1 == "2"):
-        print("SHOW THE EXHIBITION TABLE")
+        cur.execute("Select * from Exhibition")
 
 
 def data_entry_interface():
@@ -103,6 +105,33 @@ def data_entry_interface():
         print("\tSculpture")
         print("\tStatue\n")
         table_search = input("Enter The Name of Table you would like to look up: ")
+        cur.execute("Select * from " + table_search)
+
+    elif(input == "b"):
+        print("(1) - Insert Tuple Values")
+        print("(2) - Update Tuples")
+        print("(3) - Delete Tuples")
+        second_input = input("Enter a number: ")
+        while(second_input != "1" and second_input != "2" and second_input != "3"):
+            print("Error. Please Try again!")
+            second_input = input("Enter a number: ")
+        if(second_input == "1"):
+            print("Search Table")
+            table_name = input("Search Table you want to manipulate: ")
+            insert_values = input("\nEnter Tuple Values for Table")
+            cur.execute("Insert Into " + table_name + " Values " + insert_values)
+        elif(second_input == "2"):
+            print("Search Table")
+            table_name = input("Search Table you want to manipulate: ")
+            update_statement = input("\nWrite the attribute=new_value. E.g, name='Johnathan': ")
+            update_where = input("Write a condition to specify the tuples. Type * for all: ")
+            cur.execute("Update " + table_name + " Set " + update_statement + " Where " + update_where)
+        elif(second_input == "3"):
+            print("Search Table")
+            table_name = input("Search Table you want to manipulate: ")
+            delete_where = input("specify the condition to delete (E.g, id='125689'). Select * for all: ")
+            cur.execute("Delete From " + table_name + " Where " + delete_where)
+
 
 def main_menu():
     global isGuest
@@ -135,12 +164,11 @@ else:
         password = input("Enter password: ")
 
     if(username == "admin"):
+        print("Type exit to end code")
         query = input("Enter an SQL command: ")
+        while(query != "exit"):
+            cur.execute(query)
+            query = input("Enter another sql command: ")
         
     elif(username == "employee"):
-        print("You were this")
-
-
-
-
-#End User Interface
+        data_entry_interface()
