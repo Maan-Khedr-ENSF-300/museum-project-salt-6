@@ -12,7 +12,6 @@ Create Table Collections
     Description varchar(50) NOT NULL,
     Phone       varchar(12)     NOT NULL,
     Contact__Person     varchar(20)    NOT NULL,
-
     PRIMARY KEY (Name)
 );
 
@@ -24,9 +23,9 @@ Create Table Exhibition
     Start_date varchar(10) NOT NULL,
 
     End_date varchar(10) NOT NULL,
-    
+
     PRIMARY KEY (Name, Art_id)
-    Foreign Key(Art_id) references Art_Object(uniq)
+    Foreign Key(Art_id) references Art_Object(unique id_no)
 );
 
 Create Table Artist 
@@ -39,7 +38,13 @@ Create Table Artist
 
     Country_of_origin varchar(25) NOT NULL,
 
-    Primary Key(Name)
+    Epoch varchar(25) NOT NULL,
+
+    main_style varchar(25) NOT NULL,
+
+    Description varchar(20) NOT NULL,
+
+    Primary Key(Name, Epoch, Country_of_origin)
 );
 
 
@@ -50,7 +55,7 @@ Create Permanent_Collection
     Status  varchar(20) NOT NULL,
     Cost int NOT NULL,
     Primary key(unique id_no),
-    Foreign key(unique id_no) references Art_Object(unique id_no),
+    Foreign key(unique id_no) references Art_Object(Unique id_no),
 );
 
 Create Painting
@@ -69,6 +74,7 @@ Create Statue
     Height int NOT NULL,
     Weight int NOT NULL,
     Material  varchar(25) NOT NULL,
+    Style varchar(25) NOT NULL,
     Primary Key(unique id_no),
     Foreign key(unique id_no) references Art_Object(unique id_no),
 );
@@ -81,15 +87,18 @@ Create Art_Object (
     Epoch varchar(20) NOT NULL,
     Country_of_origin varchar(20) NOT NULL,
     Unique id_no INT NOT NUll,
-
-    PRIMARY KEY (Unique id_no)
+    CONSTRAINT AOPK PRIMARY KEY (Unique id_no),
+    CONSTRAINT AOFK1 Foreign Key(Epoch) references Art_Object(Epoch),
+    CONSTRAINT AOFK2 Foreign Key(Country_of_origin) references Art_Object(Country_of_origin)
 );
 
 Create Borrowed_Collection(
     Date_borrowed varchar(20) NOT NULL,
     Date_returned varchar(20) NOT NULL,
     Collection varchar(20) NOT NULL,
-    Unique id_no int NOT NULL
+    Unique id_no int NOT NULL,
+    Primary Key(unique id_no),
+    Foreign Key(unique id_no) references Art_Object(unique id_no)
 );
 
 CREATE Sculpture(
@@ -97,12 +106,16 @@ CREATE Sculpture(
     Height varchar(20) NOT NULL,
     Style varchar(20) NOT NULL,
     Material varchar(20) NOT NULL,
-    Unique id_no int NOT NULL
+    Unique id_no int NOT NULL,
+    Primary Key(unique id_no),
+    Foreign Key(unique id_no) references Art_Object(unique id_no)
 );
 
 Create Other(
-    Unique_id_no INT,
+    Unique id_no INT,
     Style varchar(20) NOT NULL,
-    Type varchar(20) NOT NULL
+    Type varchar(20) NOT NULL,
+    Primary Key(unique id_no),
+    Foreign Key(unique id_no) references Art_Object(unique id_no)
 );
 
